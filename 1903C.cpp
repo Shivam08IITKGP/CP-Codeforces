@@ -1,3 +1,6 @@
+//We add the suffix sum only if it is positive 
+//We must add atleast once all the terms
+//Hence initially ans= suffix[0];
 #include <bits/stdc++.h>
 using namespace std;
 #define FASTIO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
@@ -27,6 +30,7 @@ void solve()
     }
     cout<<ans<<"\n";
 }
+
 int main()
 {
     FASTIO
