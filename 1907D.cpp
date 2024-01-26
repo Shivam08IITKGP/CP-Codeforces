@@ -3,7 +3,7 @@ using namespace std;
 #define FASTIO ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
 typedef long long int ll;
 //I just did Binary Search on the target number
-bool satisfy(vector<ll>&l,vector<ll>&r,ll k)
+bool satisfy(vector<ll>&l,vector<ll>&r,ll k )
 {
     ll n= l.size();
     ll left=0;
