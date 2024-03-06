@@ -29,6 +29,13 @@ void solve()
             {
                 if (!bita and x + (1LL << i) <= r)
                 {
+                    //if the current position at a is 0 and b is 1 
+                    //then we can keep there 1 at a's position and 0 at b's position
+
+                    //only check if x+2^i is smaller than r 
+                    //ans will be sort of 10000 - 01111
+                    //Only the first bit of b is 1 and rest wherever possible 
+                    //put 1 in a and 0 in b
                     x += (1ll << i);
                     a ^= (1ll << i);
                     b ^= (1ll << i);
