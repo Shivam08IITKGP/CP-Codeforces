@@ -42,6 +42,15 @@ void solve()
                 sum -= pq.top();
                 pq.pop();
             }
+            //this is sort of a dp approach from here
+
+            //Here suppose l=1 and we have indices r = 3 ,4 in the pq
+            //Now we check for r= 5,6 and so on
+            //We actually know that taking 5 and 6 is much more optimal than taking 3 and 4
+            //Then we can just remove 3 and 4 from the pq and add 5 and 6
+
+            //pq.top() is a[i] which is not in ascending order
+            //So we can remove the top element and add the smaller a[i] to the pq
             ans = max(ans, (int)pq.size());
         }
     }
