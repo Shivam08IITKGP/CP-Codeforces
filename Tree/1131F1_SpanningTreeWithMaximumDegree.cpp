@@ -4,8 +4,9 @@ using namespace std;
 #define f(i, start, end) for (int i = start; i < end; i++)
 #define fr(i, start, end) for (int i = start; i > end; i--)
 typedef long long int ll;
-
-vector<int> adj[20001];
+//Note if it has one less zero than there it will not accept the code.
+//As we are said 2e5.
+vector<int> adj[200001];
 vector<int> vis;
 
 void bfs(int src)
