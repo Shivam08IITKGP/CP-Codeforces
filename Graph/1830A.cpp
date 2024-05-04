@@ -10,10 +10,12 @@ typedef long long int ll;
 
 // Now start dfs from the root.
 // 2 cases (only when v is not visited.)
-//1) index(u,v) >= id[u] , i.e. Before reaching the edge (u,v), u has been drawn in the tree. So v can be read at the same time as that of
-// u. Hence dp[v]=dp[u] and id[v]= index(u,v)
-//2) index(u,v) < id[u] , i.e. u is not read when we reach this edge(u,v). So it will read in the next scan probably. Hence dp[v]=dp[u]+1
-// and id[v]=index(u,v)
+//1) 
+//index(u,v) >= id[u], i.e. we can visit v in the same scan as u (this edge is greater than where u will be activated)
+// Hence dp[v]=dp[u] and id[v]= index(u,v)
+//2)
+//index(u,v)<id[u],i.e.v will be visited in the next scan after dp[u](this edge is before the edge where u will be activated)
+// dp[v]=dp[u]+1 and id[v]=index(u,v)
 vector<int>dp(2e5+5),id(2e5+5);
 vector<pair<int,int>>edge[200005];
 void dfs(int node)
