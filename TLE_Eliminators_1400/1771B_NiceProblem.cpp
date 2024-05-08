@@ -47,7 +47,7 @@ void solve()
     cout<<ans<<endl;
 }
 
-int main()
+int32_t main()
 {
     int t;
     cin>>t;
