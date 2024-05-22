@@ -44,8 +44,13 @@ void solve()
             // those nodes which are at distance i from child node
             // and having distance k-i-1 from the current node
             // are at a distance k from each other
-            f(i, 0, k) ans += dp[child][i] * dp[node][k - i - 1];
+            f(i, 0, k) ans += dp[node][i] * dp[child][k - i - 1];
             f(i, 0, k) dp[node][i + 1] += dp[child][i];
+            // You might be thinking that if distance from one node is k-i-1 and another is i,
+            // so can they not lie in near to each other i.e. same path?
+            // We are adding the dp[child][i] only after we have calculated the ans for all the nodes
+            // that are not in the child path.
+            // So, we are not counting the nodes that are in the child path.
         }
     };
     dfs(1, -1);
