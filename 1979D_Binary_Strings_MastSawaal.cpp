@@ -13,8 +13,13 @@ void solve()
         {
             if (cnt != k)
             {
+                // if cnt!=k then why are we making p= i???
+                // Because We must remove this part And shift it to back 
+                // As this can't represent the front
                 p = i;
                 if (cnt > k)
+                // if cnt>=2k then answer is -1 only
+                // we are just seperating the string
                     p -= k;
                 break;
             }
