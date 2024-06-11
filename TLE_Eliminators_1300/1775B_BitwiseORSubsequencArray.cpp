@@ -1,6 +1,8 @@
 // Simply check if in every number there is a bit that is unique to only that number
 // If every number has such a unique bit, then answer is no
 // Else YES
+//Note that the bit can be greater than 32
+// Hence used a map
 
 void solve()
 {
