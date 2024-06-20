@@ -4,6 +4,7 @@ void solve()
     int n, m, k;
     read(n, m, k);
     vector<string> g(n);
+    read(g);
 
     int dx[] = {0, 1, 0, -1};
     int dy[] = {1, 0, -1, 0};
