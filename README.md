@@ -1,3 +1,3 @@
 # CP-Codeforces-
 
-Here I post some solutions of the codeforces good problems. Hope you learn something new today. Cheers......
+Here I post some solutions of the codeforces problems.
