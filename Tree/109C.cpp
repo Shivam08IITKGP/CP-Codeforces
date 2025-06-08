@@ -30,13 +30,13 @@ void solve()
         g[v].pb(MP(u, res));
     }
 
-    vi F(n, 0), F_(n, 0), C(n, 1);
+    vi indp(n, 0), outdp(n, 0), size(n, 1);
 
     /*
     -> C[u] will track the size of the subtree rooted at u when we root the tree at node 0.
     -> F[u] will count, among those C[u] descendants, how many have at least one lucky edge
     on the path down from u.
-    -> F_[u] will count, among the other nodes (not in u’s subtree), how many have
+    -> outdp[u] will count, among the other nodes (not in u’s subtree), how many have
      at least one lucky edge on the path up/out from u.
     */
 
@@ -47,15 +47,15 @@ void solve()
             if (it.F == p)
                 continue;
             dfs1(it.F, u);
-            C[u] += C[it.F];
             if (it.S)
             {
-                F[u] += C[it.F];
+                indp[u] += size[it.F]; // (max(size[it.F], indp[it.F]) = size[it.F])
             }
             else
             {
-                F[u] += F[it.F];
+                indp[u] += indp[it.F];
             }
+            size[u] += size[it.F];
         }
     };
 
@@ -68,13 +68,14 @@ void solve()
 
             if (it.S)
             {
-                F_[it.F] = n - C[it.F];
+                outdp[it.F] = n - size[it.F];
             }
             else
             {
-                F_[it.F] = F_[u] + (F[u] - F[it.F]);
-                // F[u] - F[it.F] gives the children of u that are not in the subtree of it.F
+                outdp[it.F] = outdp[u] + (indp[u] - indp[it.F]);
+                // indp[u] - indp[it.F] gives the children of u that are not in the subtree of it.F
             }
+            dfs2(it.F, u);
         }
     };
 
@@ -84,7 +85,7 @@ void solve()
     int ans = 0;
     fr(i, n)
     {
-        ans += F[i] * (F[i] - 1) + F_[i] * (F_[i] - 1) + 2 * F[i] * F_[i];
+        ans += indp[i] * (indp[i] - 1) + outdp[i] * (outdp[i] - 1) + 2 * indp[i] * outdp[i];
     }
     cout << ans << endl;
 }
