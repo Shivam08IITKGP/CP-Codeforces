@@ -138,7 +138,7 @@ After that, set a = b, and repeat for C3, and so on.
     {
         fr(j, x + 1)
         {
-            ans = (ans + dp[0][i][j]) % N; // 0th vault is highest security vault
+            ans = (ans + dp[0][i][j]) % N;
         }
     }
     cout << ans << endl;
